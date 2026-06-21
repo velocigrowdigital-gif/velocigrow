@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="google-site-verification" content="8qkd-Kke63DET3uvxRWXdJqIzLMj8rQh-5P5Kd5ntSM" />
+<title>VelociGrow Digital — Websites That Scale</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream: #f5f0e8;
+  --beige: #e8e0d0;
+  --warm-white: #fafaf7;
+  --forest: #1e3a2f;
+  --forest-light: #2d5040;
+  --forest-mid: #3a6b52;
+  --sage: #7a9e8a;
+  --gold: #b8962e;
+  --gold-light: #d4af50;
+  --charcoal: #1a1a18;
+  --text-dark: #1a1a18;
+  --text-mid: #4a4a3a;
+  --text-light: #8a8a7a;
+  --border: rgba(30,58,47,0.15);
+  --india-orange: #e8541a;
+  --india-orange-light: #f07040;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(250,250,247,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 6vw;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: 1px;
+  text-decoration: none;
+  z-index: 101;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--forest); }
+.nav-cta {
+  background: var(--forest);
+  color: var(--cream) !important;
+  padding: 8px 20px;
+  border-radius: 2px;
+}
+.nav-cta:hover { background: var(--forest-light); color: var(--cream) !important; }
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 101;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--forest);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── MOBILE NAV ── */
+@media(max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--warm-white);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 100;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  .nav-cta {
+    padding: 12px 32px;
+  }
+}
+
+/* ── HERO ── */
+#home {
+  min-height: 100vh;
+  background: var(--forest);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 6vw 80px;
+  position: relative;
+  overflow: hidden;
+}
+#home::before {
+  content:'';
+  position: absolute; inset:0;
+  background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(184,150,46,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-logo-img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-tag {
+  display: inline-block;
+  border: 1px solid rgba(184,150,46,0.5);
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.hero-h1 em { font-style: italic; color: var(--gold-light); }
+.hero-sub {
+  font-size: 1rem;
+  color: rgba(245,240,232,0.6);
+  max-width: 480px;
+  line-height: 1.7;
+  margin: 2rem auto;
+  font-weight: 300;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.hero-btns {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--charcoal);
+  padding: 14px 32px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s;
+  border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-outline {
+  border: 1px solid rgba(245,240,232,0.3);
+  color: var(--cream);
+  padding: 14px 32px;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: var(--cream); background: rgba(245,240,232,0.05); }
+
+.hero-stats {
+  display: flex; gap: 4rem; justify-content: center; flex-wrap: wrap;
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(245,240,232,0.1);
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--gold-light);
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: rgba(245,240,232,0.45);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── SECTION BASE ── */
+section { padding: 100px 6vw; }
+.section-tag {
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: var(--forest);
+  line-height: 1.15;
+}
+.section-title em { font-style: italic; color: var(--forest-mid); }
+.divider {
+  width: 48px; height: 1px;
+  background: var(--gold);
+  margin: 2rem 0;
+}
+
+/* ── SERVICES ── */
+#services { background: var(--warm-white); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5px;
+  margin-top: 4rem;
+  border: 1.5px solid var(--border);
+}
+.service-card {
+  padding: 2.5rem;
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.service-card:hover { background: #f0ece2; }
+.service-icon { font-size: 1.5rem; margin-bottom: 1.2rem; }
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--forest); margin-bottom: 0.6rem;
+}
+.service-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+
+/* ── SWISS OFFER ── */
+#swiss-offer { background: var(--forest); color: var(--cream); }
+.offer-badge {
+  display: inline-block;
+  background: rgba(184,150,46,0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+#swiss-offer .section-title { color: var(--cream); }
+#swiss-offer .section-title em { color: var(--gold-light); }
+#swiss-offer .divider { background: var(--gold); }
+.offer-sub {
+  font-size: 0.95rem;
+  color: rgba(245,240,232,0.6);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+/* ── SWISS PACKAGES GRID ── */
+.swiss-packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  margin-top: 3rem;
+  background: rgba(245,240,232,0.08);
+  border: 1px solid rgba(245,240,232,0.08);
+}
+.swiss-pkg {
+  padding: 2.5rem 2rem;
+  background: rgba(245,240,232,0.03);
+  border: 1px solid rgba(245,240,232,0.07);
+  transition: background 0.2s;
+  position: relative;
+}
+.swiss-pkg:hover { background: rgba(245,240,232,0.07); }
+.swiss-pkg.featured {
+  background: rgba(184,150,46,0.1);
+  border-color: rgba(184,150,46,0.4);
+}
+.pkg-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+}
+.pkg-badge.popular {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+.pkg-badge.starter {
+  background: rgba(245,240,232,0.1);
+  color: rgba(245,240,232,0.5);
+  border: 1px solid rgba(245,240,232,0.2);
+}
+.pkg-badge.premium {
+  background: rgba(184,150,46,0.2);
+  color: var(--gold-light);
+  border: 1px solid rgba(184,150,46,0.4);
+}
+.pkg-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 0.4rem;
+}
+.pkg-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.pkg-price small {
+  font-size: 1rem;
+  color: rgba(245,240,232,0.4);
+}
+.pkg-desc {
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.45);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+.pkg-features {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+.pkg-features li {
+  font-size: 0.83rem;
+  color: rgba(245,240,232,0.7);
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  line-height: 1.4;
+}
+.pkg-features li::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: 0.6rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.pkg-cta {
+  display: block;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+.pkg-cta.gold-cta {
+  background: var(--gold);
+  color: var(--charcoal);
+}
+.pkg-cta.gold-cta:hover { background: var(--gold-light); }
+.pkg-cta.outline-cta {
+  border: 1px solid rgba(245,240,232,0.25);
+  color: var(--cream);
+  background: transparent;
+}
+.pkg-cta.outline-cta:hover { border-color: var(--cream); }
+
+.swiss-note {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(184,150,46,0.3);
+  background: rgba(184,150,46,0.05);
+  border-radius: 2px;
+}
+.swiss-note p { font-size: 0.85rem; color: rgba(245,240,232,0.6); line-height: 1.6; }
+.swiss-note strong { color: var(--gold-light); }
+
+/* ── INDIA SECTION ── */
+#india-offer {
+  background: #0f1a0f;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+#india-offer::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(232,84,26,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.india-badge {
+  display: inline-block;
+  background: rgba(232,84,26,0.15);
+  border: 1px solid var(--india-orange);
+  color: var(--india-orange-light);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+#india-offer .section-title { color: var(--cream); }
+#india-offer .section-title em { color: var(--india-orange-light); font-style: italic; }
+#india-offer .divider { background: var(--india-orange); }
+#india-offer .section-tag { color: var(--india-orange); }
+
+.india-packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1px;
+  margin-top: 3rem;
+  background: rgba(232,84,26,0.05);
+  border: 1px solid rgba(232,84,26,0.1);
+}
+.india-pkg {
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(232,84,26,0.08);
+  transition: background 0.2s;
+  position: relative;
+}
+.india-pkg:hover { background: rgba(232,84,26,0.05); }
+.india-pkg.featured { background: rgba(232,84,26,0.08); border-color: rgba(232,84,26,0.3); }
+.india-pkg-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+}
+.india-pkg-badge.popular { background: var(--india-orange); color: white; }
+.india-pkg-badge.starter { background: rgba(255,255,255,0.07); color: rgba(245,240,232,0.45); border: 1px solid rgba(255,255,255,0.12); }
+.india-pkg-badge.premium { background: rgba(232,84,26,0.2); color: var(--india-orange-light); border: 1px solid rgba(232,84,26,0.35); }
+.india-pkg-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 300;
+  color: var(--cream); margin-bottom: 0.4rem;
+}
+.india-pkg-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 300;
+  color: var(--india-orange-light);
+  line-height: 1; margin-bottom: 0.3rem;
+}
+.india-pkg-price small { font-size: 0.9rem; color: rgba(245,240,232,0.35); }
+.india-pkg-desc { font-size: 0.8rem; color: rgba(245,240,232,0.4); margin-bottom: 1.5rem; line-height: 1.5; }
+.india-pkg-features {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+.india-pkg-features li {
+  font-size: 0.83rem;
+  color: rgba(245,240,232,0.65);
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  line-height: 1.4;
+}
+.india-pkg-features li::before { content: '✦'; color: var(--india-orange); font-size: 0.6rem; margin-top: 3px; flex-shrink: 0; }
+.india-pkg-cta {
+  display: block; text-align: center;
+  padding: 12px 20px;
+  font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: none; border-radius: 2px;
+  transition: all 0.2s; font-weight: 500;
+  cursor: pointer; border: none; width: 100%;
+}
+.india-pkg-cta.orange-cta { background: var(--india-orange); color: white; }
+.india-pkg-cta.orange-cta:hover { background: var(--india-orange-light); }
+.india-pkg-cta.outline-cta-india { border: 1px solid rgba(232,84,26,0.35); color: var(--india-orange-light); background: transparent; }
+.india-pkg-cta.outline-cta-india:hover { border-color: var(--india-orange); }
+
+/* ── PORTFOLIO ── */
+#portfolio { background: var(--beige); }
+.portfolio-card {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--warm-white);
+}
+@media(max-width:720px){ .portfolio-card { grid-template-columns: 1fr; } }
+.portfolio-preview {
+  background: var(--forest);
+  padding: 3rem;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 300px;
+}
+.browser-mock {
+  width: 100%;
+  background: var(--charcoal);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+}
+.browser-bar {
+  background: #2a2a28; padding: 8px 12px;
+  display: flex; align-items: center; gap: 6px;
+}
+.dot { width:8px; height:8px; border-radius:50%; }
+.dot-r { background:#ff5f57; }
+.dot-y { background:#febc2e; }
+.dot-g { background:#28c840; }
+.browser-url {
+  margin-left: 8px; background: #3a3a38;
+  padding: 3px 10px; border-radius: 3px;
+  font-size: 0.7rem; color: rgba(255,255,255,0.4); flex: 1;
+}
+.browser-content { padding: 1.5rem; background: #0e0e0e; }
+.mock-hero-bar {
+  height: 60px;
+  background: linear-gradient(135deg, #1e3a2f, #2d5040);
+  border-radius: 2px; margin-bottom: 0.6rem;
+}
+.mock-row { display: flex; gap: 0.5rem; margin-bottom: 0.4rem; }
+.mock-block { background: #1e1e1c; border-radius: 2px; height: 20px; }
+.portfolio-info { padding: 3rem; }
+.portfolio-info .section-tag { margin-bottom: 0.5rem; }
+.portfolio-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 400;
+  color: var(--forest); margin-bottom: 1rem;
+}
+.portfolio-info p { font-size: 0.88rem; color: var(--text-light); line-height: 1.75; margin-bottom: 1.5rem; }
+.portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.tag {
+  font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 12px; border: 1px solid var(--border);
+  color: var(--text-mid); border-radius: 2px;
+}
+.testimonial-box {
+  padding: 1.2rem; background: #f0ece2;
+  border-left: 3px solid var(--forest);
+}
+.testimonial-box p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1rem;
+  color: var(--forest); line-height: 1.6; margin: 0 0 0.5rem;
+}
+.testimonial-box cite { font-size: 0.75rem; color: var(--text-light); font-style: normal; letter-spacing: 0.5px; }
+
+/* ── ABOUT ── */
+#about {
+  background: var(--warm-white);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center;
+}
+@media(max-width:800px){ #about { grid-template-columns: 1fr; gap: 3rem; } }
+.about-card {
+  background: var(--forest); padding: 3rem;
+  border-radius: 2px; color: var(--cream);
+}
+.about-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300; margin-bottom: 0.5rem;
+}
+.about-card .role {
+  font-size: 0.78rem; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.5rem;
+}
+.about-card p { font-size: 0.88rem; color: rgba(245,240,232,0.65); line-height: 1.75; margin-bottom: 1rem; }
+.about-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.badge {
+  font-size: 0.72rem; padding: 4px 12px;
+  border: 1px solid rgba(184,150,46,0.4);
+  color: var(--gold-light); border-radius: 2px; letter-spacing: 0.5px;
+}
+.about-text .section-tag { margin-bottom: 0.8rem; }
+.about-text p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.2rem; }
+.credentials { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.cred { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border: 1px solid var(--border); }
+.cred-icon { font-size: 1.2rem; }
+.cred h4 { font-size: 0.88rem; font-weight: 500; color: var(--forest); margin-bottom: 0.2rem; }
+.cred p { font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.5; }
+
+/* ── CONTACT ── */
+#contact { background: var(--beige); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; margin-top: 3rem; align-items: start;
+}
+@media(max-width:720px){ .contact-grid { grid-template-columns: 1fr; } }
+.contact-info p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 2rem; }
+.contact-methods { display: flex; flex-direction: column; gap: 1rem; }
+.contact-method {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.2rem; background: var(--warm-white);
+  border: 1px solid var(--border); text-decoration: none;
+  transition: border-color 0.2s;
+}
+.contact-method:hover { border-color: var(--forest); }
+.method-icon { font-size: 1.1rem; }
+.method-label { font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); }
+.method-value { font-size: 0.88rem; color: var(--forest); font-weight: 500; }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-mid); }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px 14px; border: 1px solid var(--border);
+  background: var(--warm-white); font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; color: var(--text-dark); outline: none;
+  border-radius: 2px; transition: border-color 0.2s; appearance: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { border-color: var(--forest); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.btn-submit {
+  background: var(--forest); color: var(--cream);
+  padding: 14px 28px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; border: none; cursor: pointer;
+  border-radius: 2px; transition: background 0.2s; align-self: flex-start;
+}
+.btn-submit:hover { background: var(--forest-light); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal); padding: 2.5rem 6vw;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--cream); }
+.footer-logo span { color: var(--gold); }
+footer p { font-size: 0.78rem; color: rgba(245,240,232,0.35); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── MOBILE RESPONSIVE ── */
+@media(max-width: 600px) {
+  section { padding: 70px 5vw; }
+  .hero-stats { gap: 2rem; }
+  .swiss-packages { grid-template-columns: 1fr; }
+  .india-packages { grid-template-columns: 1fr; }
+  #about { padding: 70px 5vw; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">Veloci<span>Grow</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services" onclick="closeNav()">Services</a></li>
+    <li><a href="#swiss-offer" onclick="closeNav()">Swiss Pricing</a></li>
+    <li><a href="#india-offer" onclick="closeNav()">India Pricing</a></li>
+    <li><a href="#portfolio" onclick="closeNav()">Portfolio</a></li>
+    <li><a href="#about" onclick="closeNav()">About</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="closeNav()">Get Started</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <img src="logo.png" alt="VelociGrow Logo" class="hero-logo-img" onerror="this.style.display='none'">
+  <div class="hero-tag">Websites that Scale · SEO · Growth</div>
+  <h1 class="hero-h1">Websites That<br><em>Scale.</em></h1>
+  <p class="hero-sub">We build fast, beautiful websites for small businesses — ranked on Google, pay only when you're happy.</p>
+  <div class="hero-btns">
+    <a href="#swiss-offer" class="btn-primary">Swiss Clients</a>
+    <a href="#india-offer" class="btn-outline">India Clients</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">97%</div>
+      <div class="stat-label">Customers Google first</div>
+    </div>
+    <div>
+      <div class="stat-num">CHF 0</div>
+      <div class="stat-label">Upfront payment</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Satisfaction guaranteed</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="fade-in">
+    <p class="section-tag">What We Build</p>
+    <h2 class="section-title">Everything your business<br><em>needs online</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="services-grid fade-in">
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <h3>Beautiful Homepage</h3>
+      <p>Hero section, tagline, atmosphere photos, and a clear call-to-action that converts visitors into customers.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📋</div>
+      <h3>Full Menu / Services Page</h3>
+      <p>Categorized, easy-to-read menu or services with prices — always up to date, always on their phone.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <h3>Google SEO Setup</h3>
+      <p>Meta titles, descriptions, schema markup, and keyword optimization built in from day one.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📸</div>
+      <h3>Photo Gallery</h3>
+      <p>Showcase your space, food, and ambiance. Customers decide before they even walk through the door.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📍</div>
+      <h3>Contact & Maps</h3>
+      <p>Google Maps embed, opening hours, contact form, and a WhatsApp button — everything in one place.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <h3>Mobile-First Design</h3>
+      <p>Perfect on every phone, tablet, and desktop. Speed-tested and optimized for real-world performance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SWISS OFFER -->
+<section id="swiss-offer">
+  <div class="fade-in">
+    <div class="offer-badge">🇨🇭 Swiss Café & Business Packages</div>
+    <h2 class="section-title">Zero risk. <em>Pay stage by stage.</em><br>First 3 cafés only.</h2>
+    <div class="divider"></div>
+    <p class="offer-sub">We are actively building our Swiss portfolio. The first 3 café clients receive our full service at a special introductory rate — with absolutely no upfront payment required.</p>
+  </div>
+  <div class="swiss-packages fade-in">
+    <!-- Starter -->
+    <div class="swiss-pkg">
+      <div class="pkg-badge starter">Starter</div>
+      <div class="pkg-name">Kiosk / Landing</div>
+      <div class="pkg-price">CHF 99<small>–120</small></div>
+      <div class="pkg-desc">Perfect for kiosks, food stalls, and micro-businesses that just need to exist online.</div>
+      <ul class="pkg-features">
+        <li>Single page website</li>
+        <li>Your hours, location & story</li>
+        <li>Mobile optimized</li>
+        <li>Google Maps embed</li>
+        <li>WhatsApp contact button</li>
+        <li>Basic SEO setup</li>
+      </ul>
+      <button class="pkg-cta outline-cta" onclick="sendPackageWhatsApp('Kiosk / Landing Package (CHF 99–120)')">Get Started →</button>
+    </div>
+    <!-- Standard (featured) -->
+    <div class="swiss-pkg featured">
+      <div class="pkg-badge popular">Most Popular</div>
+      <div class="pkg-name">Café Standard</div>
+      <div class="pkg-price">CHF 230<small>–271</small></div>
+      <div class="pkg-desc">The complete café website. Everything you need to be found, trusted, and visited.</div>
+      <ul class="pkg-features">
+        <li>5-stage build — pay as you approve</li>
+        <li>Homepage with hero & CTA</li>
+        <li>Full menu page</li>
+        <li>Photo gallery</li>
+        <li>About & story section</li>
+        <li>Contact, maps & WhatsApp</li>
+        <li>Full SEO optimization</li>
+        <li>2 free revision rounds per stage</li>
+        <li>Post-launch support included</li>
+      </ul>
+      <button class="pkg-cta gold-cta" onclick="sendPackageWhatsApp('Café Standard Package (CHF 230–271)')">Get Started →</button>
+    </div>
+    <!-- Premium -->
+    <div class="swiss-pkg">
+      <div class="pkg-badge premium">Premium</div>
+      <div class="pkg-name">Full Business</div>
+      <div class="pkg-price">CHF 350<small>–420</small></div>
+      <div class="pkg-desc">For restaurants, multi-service businesses, or anyone who wants the full agency experience.</div>
+      <ul class="pkg-features">
+        <li>Everything in Standard</li>
+        <li>Online reservation / booking form</li>
+        <li>Multi-language support (DE/FR/EN)</li>
+        <li>Advanced SEO & Google Business setup</li>
+        <li>Instagram feed integration</li>
+        <li>Custom animations & scroll effects</li>
+        <li>3 months post-launch support</li>
+        <li>Priority response time</li>
+      </ul>
+      <button class="pkg-cta outline-cta" onclick="sendPackageWhatsApp('Full Business Package (CHF 350–420)')">Get Started →</button>
+    </div>
+  </div>
+  <div class="swiss-note" style="margin-top:2rem">
+    <p>⏳ <strong>This offer is available to the first 3 Swiss cafés only.</strong> Once 3 client results are verified and published, pricing will align with market rates. No upfront payment — you pay only after approving each stage.</p>
+  </div>
+</section>
+
+<!-- INDIA OFFER -->
+<section id="india-offer">
+  <div class="fade-in">
+    <div class="india-badge">🇮🇳 India Packages</div>
+    <p class="section-tag">For Indian Businesses</p>
+    <h2 class="section-title">Professional websites.<br><em>Indian pricing.</em></h2>
+    <div class="divider"></div>
+    <p class="offer-sub" style="color:rgba(245,240,232,0.55)">Built for gyms, salons, restaurants, and local businesses across India. Pay in stages, own everything.</p>
+  </div>
+  <div class="india-packages fade-in">
+    <!-- Starter -->
+    <div class="india-pkg">
+      <div class="india-pkg-badge starter">Starter</div>
+      <div class="india-pkg-name">Basic Presence</div>
+      <div class="india-pkg-price">₹8,999</div>
+      <div class="india-pkg-desc">Perfect for shops, salons, and local services that need to be found online fast.</div>
+      <ul class="india-pkg-features">
+        <li>Single page website</li>
+        <li>Mobile optimized</li>
+        <li>Google Maps & hours</li>
+        <li>WhatsApp button</li>
+        <li>Basic SEO setup</li>
+        <li>Fast delivery — 5 days</li>
+      </ul>
+      <button class="india-pkg-cta outline-cta-india" onclick="sendPackageWhatsApp('India Basic Presence Package (₹8,999)')">Get Started →</button>
+    </div>
+    <!-- Standard -->
+    <div class="india-pkg featured">
+      <div class="india-pkg-badge popular">Most Popular</div>
+      <div class="india-pkg-name">Business Standard</div>
+      <div class="india-pkg-price">₹13,999</div>
+      <div class="india-pkg-desc">Multi-page website with gallery, services, and everything customers need to trust you.</div>
+      <ul class="india-pkg-features">
+        <li>3–4 page website</li>
+        <li>Services / menu page</li>
+        <li>Photo gallery</li>
+        <li>Contact form + WhatsApp</li>
+        <li>Google Maps embed</li>
+        <li>Full SEO optimization</li>
+        <li>Mobile & desktop perfect</li>
+        <li>2 revision rounds</li>
+      </ul>
+      <button class="india-pkg-cta orange-cta" onclick="sendPackageWhatsApp('India Business Standard Package (₹13,999)')">Get Started →</button>
+    </div>
+    <!-- Premium -->
+    <div class="india-pkg">
+      <div class="india-pkg-badge premium">Premium</div>
+      <div class="india-pkg-name">Full Multipage</div>
+      <div class="india-pkg-price">₹18,999</div>
+      <div class="india-pkg-desc">The complete website experience. Animations, booking, gallery, SEO — everything.</div>
+      <ul class="india-pkg-features">
+        <li>Everything in Standard</li>
+        <li>Custom animations & effects</li>
+        <li>YouTube hero video integration</li>
+        <li>Pricing / packages table</li>
+        <li>Google Business profile setup</li>
+        <li>3 months support after launch</li>
+        <li>Priority delivery — 10 days</li>
+      </ul>
+      <button class="india-pkg-cta outline-cta-india" onclick="sendPackageWhatsApp('India Full Multipage Package (₹18,999)')">Get Started →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="fade-in">
+    <p class="section-tag">Proof of Work</p>
+    <h2 class="section-title">We built this.<br><em>It ranks on Google.</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="portfolio-card fade-in">
+    <div class="portfolio-preview">
+      <div class="browser-mock">
+        <div class="browser-bar">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <div class="browser-url">vigorfitnessgym.in</div>
+        </div>
+        <div class="browser-content">
+          <div class="mock-hero-bar"></div>
+          <div class="mock-row">
+            <div class="mock-block" style="width:60%"></div>
+            <div class="mock-block" style="width:35%"></div>
+          </div>
+          <div class="mock-row">
+            <div class="mock-block" style="width:40%"></div>
+            <div class="mock-block" style="width:55%"></div>
+          </div>
+          <div class="mock-row" style="margin-top:0.6rem">
+            <div class="mock-block" style="width:30%;height:40px;background:#1e3a2f"></div>
+            <div class="mock-block" style="width:30%;height:40px;background:#1e3a2f"></div>
+            <div class="mock-block" style="width:30%;height:40px;background:#1e3a2f"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-info">
+      <p class="section-tag">Client · India</p>
+      <h3>Vigor Fitness Gym</h3>
+      <p>A full multi-section business website built for a gym. The site ranks on Google for competitive keywords, loads fast on mobile, and drove new customer inquiries within weeks of launch.</p>
+      <div class="portfolio-tags">
+        <span class="tag">YouTube Hero Video</span>
+        <span class="tag">Services Section</span>
+        <span class="tag">Photo Gallery</span>
+        <span class="tag">Pricing Table</span>
+        <span class="tag">Google Maps</span>
+        <span class="tag">WhatsApp Button</span>
+        <span class="tag">Full SEO</span>
+        <span class="tag">Mobile Responsive</span>
+      </div>
+      <div class="testimonial-box">
+        <p>"The website is simple, logical, straight to the point, and fully SEO optimized. Customers started finding us on Google within weeks. Delivered exactly what we needed — highly recommended."</p>
+        <cite>— Owner, Vigor Fitness Gym</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual fade-in">
+    <div class="about-card">
+      <h3>Anmol</h3>
+      <div class="role">Founder · VelociGrow Digital</div>
+      <p>Freelance web developer with a focus on SEO-first design and real, measurable results for small businesses across Switzerland and India.</p>
+      <p>Every website I build is designed to be found on Google, look beautiful on every device, and convert visitors into customers from day one.</p>
+      <div class="about-badges">
+        <span class="badge">SEO-First</span>
+        <span class="badge">Fluent English</span>
+        <span class="badge">Swiss Market</span>
+        <span class="badge">Fast Delivery</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-text fade-in">
+    <p class="section-tag">Why VelociGrow</p>
+    <h2 class="section-title">Global reach.<br><em>Local understanding.</em></h2>
+    <div class="divider"></div>
+    <p>VelociGrow was built on a simple belief — small businesses deserve beautiful, high-performing websites without paying agency prices. We operate globally, communicate clearly, and deliver on time.</p>
+    <div class="credentials">
+      <div class="cred">
+        <div class="cred-icon">✦</div>
+        <div>
+          <h4>Proven Track Record</h4>
+          <p>vigorfitnessgym.in — ranked on Google, outstanding client review, fast mobile performance.</p>
+        </div>
+      </div>
+      <div class="cred">
+        <div class="cred-icon">✦</div>
+        <div>
+          <h4>Stage-by-Stage Payment</h4>
+          <p>No upfront cost. You pay only after reviewing and approving each stage of your website.</p>
+        </div>
+      </div>
+      <div class="cred">
+        <div class="cred-icon">✦</div>
+        <div>
+          <h4>You Own Everything</h4>
+          <p>Full ownership of your domain and website. No lock-in, no recurring agency fees, ever.</p>
+        </div>
+      </div>
+      <div class="cred">
+        <div class="cred-icon">✦</div>
+        <div>
+          <h4>Swiss Time Zone Aware</h4>
+          <p>Fast, clear communication. Responsive on WhatsApp & email within hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <p class="section-tag">Get In Touch</p>
+    <h2 class="section-title">Ready to put your<br><em>business on Google?</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contact-grid fade-in">
+    <div class="contact-info">
+      <p>Start with a free, zero-pressure consultation. Tell me about your business — I'll share a design direction and timeline. No payment until you see the first stage live.</p>
+      <div class="contact-methods">
+        <a href="mailto:velocigrowdigital@gmail.com" class="contact-method">
+          <div class="method-icon">✉</div>
+          <div>
+            <div class="method-label">Email</div>
+            <div class="method-value">velocigrowdigital@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://wa.me/919871136376" class="contact-method" target="_blank">
+          <div class="method-icon">💬</div>
+          <div>
+            <div class="method-label">WhatsApp</div>
+            <div class="method-value">Chat with us</div>
+          </div>
+        </a>
+        <a href="https://instagram.com/velocigrowco" class="contact-method" target="_blank">
+          <div class="method-icon">📸</div>
+          <div>
+            <div class="method-label">Instagram</div>
+            <div class="method-value">@velocigrowco</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="inp-name" placeholder="Your full name"/>
+        </div>
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" id="inp-business" placeholder="Your business name"/>
+        </div>
+        <div class="form-group">
+          <label>Email or WhatsApp</label>
+          <input type="text" id="inp-email" placeholder="your@email.com or +41 ..."/>
+        </div>
+        <div class="form-group">
+          <label>Country</label>
+          <select id="inp-country">
+            <option value="">Select a country</option>
+            <option value="Switzerland 🇨🇭">Switzerland 🇨🇭</option>
+            <option value="India 🇮🇳">India 🇮🇳</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell us about your business</label>
+          <textarea id="inp-message" placeholder="What kind of business? What do you need?"></textarea>
+        </div>
+        <button type="button" class="btn-submit" onclick="sendContactWhatsApp()">Send via WhatsApp →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Veloci<span>Grow</span> Digital</div>
+  <p>© 2025 VelociGrow Digital · All prices in CHF / INR</p>
+</footer>
+
+<script>
+// ── HAMBURGER ──
+function toggleNav() {
+  const nav = document.getElementById('navLinks');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+// ── CONTACT FORM → WHATSAPP ──
+function sendContactWhatsApp() {
+  const name     = document.getElementById('inp-name').value.trim();
+  const business = document.getElementById('inp-business').value.trim();
+  const email    = document.getElementById('inp-email').value.trim();
+  const country  = document.getElementById('inp-country').value;
+  const message  = document.getElementById('inp-message').value.trim();
+
+  if (!name || !business || !email || !country || !message) {
+    alert('Please fill in all fields before sending.');
+    return;
+  }
+
+  const text = `Hi Anmol! 👋 I found VelociGrow and I'm interested in a website.\n\nName: ${name}\nBusiness: ${business}\nContact: ${email}\nCountry: ${country}\n\nMessage: ${message}`;
+  window.open(`https://wa.me/919871136376?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+// ── PACKAGE BUTTONS → WHATSAPP ──
+function sendPackageWhatsApp(packageName) {
+  const text = `Hi Anmol! 👋 I'm interested in the ${packageName} from VelociGrow. Can we talk?`;
+  window.open(`https://wa.me/919871136376?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+// ── SCROLL ANIMATIONS ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
