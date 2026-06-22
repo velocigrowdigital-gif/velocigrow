@@ -1,4 +1,64 @@
-User-agent: *
+# ════════════════════════════════════════════════════════════════════
+# VelociGrow Digital — robots.txt
+# Site: https://velocigrow.pages.dev
+# Last updated: 2026-06-22
+# Purpose: explicit crawl rules for Switzerland-focused SEO
+# ════════════════════════════════════════════════════════════════════
+
+# ── 1. Allow all major search engine bots to crawl everything ──
+User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp          # Yahoo
+Allow: /
+
+User-agent: DuckDuckBot    # DuckDuckGo — popular privacy search engine in Switzerland
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Applebot       # Apple Siri + Spotlight suggestions
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow:
+
+# ── 2. Block known content-scraping / AI-training bots ──
+# (optional — remove these blocks if you WANT your content used for AI training)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+# ── 3. Crawl-delay to keep bandwidth friendly on Cloudflare Pages free tier ──
+Crawl-delay: 1
+
+# ── 4. Sitemap declaration (Google Search Console reads this automatically) ──
 Sitemap: https://velocigrow.pages.dev/sitemap.xml
+
+# ── 5. Host directive (Yandex-specific, harmless for others) ──
+Host: https://velocigrow.pages.dev
